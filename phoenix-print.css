@@ -76,7 +76,6 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     word-spacing: 1.1pt;
     letter-spacing: 0.2pt;
     font-family: var(--body-font-family);
-    /* background: none; */
     background: none;
     font-size: 12pt;
     tab-size: 2; /* set tab size, works in codeblock */
@@ -87,14 +86,22 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
   img,
   blockquote,
   table,
-  pre,
-  ul, ol {
+  pre {
     page-break-inside: avoid;
+  }
+
+  li:not(li:empty) {
+    page-break-inside: avoid;
+  }
+
+  li:empty {
+    page-break-before: avoid;
+    page-break-after: auto;
   }
 
   /* header formatting */
   h1, h2, h3, h4, h5, h6 {
-    /* font-family: var(--header-font-family); */
+    page-break-before: auto;
     page-break-after: avoid;
     page-break-inside: avoid;
     font-weight: 500 !important;
