@@ -5,25 +5,7 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
 
 @media print {
   :root {
-    /* my colors */
-    --r-dark0:        #212121;
-    --r-light2-soft:  #c4b09c;
-    --dark-red:       #bc0104;
-    --red-orange:     #cd2b11;
-    --deep-orange:    #ed5b0f;
-    --bright-orange:  #fe750e;
-    --yellow-orange:  #fe9109;
-    --dark-orange:    #d5520e;
-    --meteor:         #72504b;
-    --gunmetal:       #534f4e;
-    --scorpion:       #625e5e;
-    --test-green:     #00ff00; /* for testing purposes */
-
     /* gruvbox colors */
-    --dark0-soft:     #32302f;
-    --light0:         #fbf1c7;
-    --light0-hard:    #f9f5d7;
-    --light1:         #ebdbb2;
     --neutral-red_x:    204,36,29; /* #cc241d */
     --neutral-red:      rgb(var(--neutral-red_x));
     --neutral-green_x:  152,151,26; /* #98971a */
@@ -44,23 +26,9 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     --header-font-family: var(--body-font-family);
     --code-font-family: "JetBrains Mono", Monospace, "Segoe UI";
 
-    /* headers */ 
-    --text-title-h1:              var(--dark-red);
-    --text-title-h2:              var(--red-orange);
-    --text-title-h3:              var(--deep-orange);
-    --text-title-h4:              var(--bright-orange);
-    --text-title-h5:              var(--yellow-orange);
-    --text-title-h6:              var(--meteor);
-
-    /* special text */
-    --text-a:                     var(--bright-orange);
-    --text-a-hover:               var(--yellow-orange);
-    --text-link:                  var(--dark-orange);
-    --text-link-hover:            var(--deep-orange);
-
     /* code */
-    --print-code-dark: #1a1a1a; /* Obsidian default codeblock color */
-    --pre-code:                   var(--print-code-dark) !important;
+    --print-codeblock-color:      #ece9e5;
+    --pre-code:                   var(--print-codeblock-color) !important;
     --print-code-punctuation:     var(--gunmetal) !important;
     --print-code-function:        var(--neutral-orange) !important;
     --print-code-keyword:         var(--neutral-purple) !important;
@@ -76,6 +44,7 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     word-spacing: 1.1pt;
     letter-spacing: 0.2pt;
     font-family: var(--body-font-family);
+    /* background: none; */
     background: none;
     font-size: 12pt;
     tab-size: 2; /* set tab size, works in codeblock */
@@ -86,7 +55,8 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
   img,
   blockquote,
   table,
-  pre {
+  pre,
+  .callout {
     page-break-inside: avoid;
   }
 
@@ -101,6 +71,7 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
 
   /* header formatting */
   h1, h2, h3, h4, h5, h6 {
+    /* font-family: var(--header-font-family); */
     page-break-before: auto;
     page-break-after: avoid;
     page-break-inside: avoid;
@@ -161,6 +132,30 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     color: var(--text-title-h6) !important;
   }
 
+  /* callouts */
+  .callout {
+    /* background: none; */
+    /* border-width: 1px;
+    border-color: rgba(var(--callout-color), 0.75); */
+  }
+
+  /* remove drop shadows from (first?) admonition/callout in document */
+  /* subsequent callouts are not affected (???) */
+  .callout, 
+  .callout:not(.admonition).drop-shadow {
+    box-shadow: none;
+  }
+
+  .callout-content {
+    padding: var(--callout-content-padding);
+  }
+
+  /* printing task lists inside callouts cuts them off unlike in obsidian */
+  .callout-content ul.contains-task-list {
+    padding-left: var(--size-4-6);
+    padding-top: var(--size-4-1);
+  }
+
   /* code formatting */
   code, code[class*="language-"],
   pre, pre[class*="language-"],
@@ -171,8 +166,8 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
   .theme-light code[class*="language-"], 
   .theme-light pre[class*="language-"]
   {
-    background-color: var(--light0-hard) !important;
-    color: var(--dark0-soft) !important;
+    background-color: var(--print-codeblock-color) !important;
+    /* color: var(--r-dark0); */
   }
 
   span[class*="token keyword"],
@@ -309,12 +304,6 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     font-weight: bold;
     font-family: var(--font-monospace);
     background: none;
-  }
-
-  .callout {
-    background: none;
-    border-width: 1px;
-    border-color: rgba(var(--callout-color), 0.75);
   }
 
   /* -=-=-=-=-=-=- */
