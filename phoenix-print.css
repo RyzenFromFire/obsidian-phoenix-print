@@ -5,7 +5,27 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
 
 @media print {
   :root {
+    /* my colors */
+    /* --r-dark0:        #212121;
+    --r-light2-soft:  #c4b09c;
+    --dark-red:       #bc0104;
+    --red-orange:     #cd2b11;
+    --deep-orange:    #ed5b0f;
+    --bright-orange:  #fe750e;
+    --yellow-orange:  #fe9109;
+    --dark-orange:    #d5520e;
+    --meteor:         #72504b;
+    --gunmetal:       #534f4e;
+    --scorpion:       #625e5e;
+    --test-green:     #00ff00;
+    */
+    
+
     /* gruvbox colors */
+    /* --dark0-soft:     #32302f;
+    --light0:         #fbf1c7;
+    --light0-hard:    #f9f5d7;
+    --light1:         #ebdbb2; */
     --neutral-red_x:    204,36,29; /* #cc241d */
     --neutral-red:      rgb(var(--neutral-red_x));
     --neutral-green_x:  152,151,26; /* #98971a */
@@ -26,6 +46,20 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     --header-font-family: var(--body-font-family);
     --code-font-family: "JetBrains Mono", Monospace, "Segoe UI";
 
+    /* headers */ 
+    /* --text-title-h1:              var(--dark-red);
+    --text-title-h2:              var(--red-orange);
+    --text-title-h3:              var(--deep-orange);
+    --text-title-h4:              var(--bright-orange);
+    --text-title-h5:              var(--yellow-orange);
+    --text-title-h6:              var(--meteor); */
+
+    /* special text */
+    /* --text-a:                     var(--bright-orange);
+    --text-a-hover:               var(--yellow-orange);
+    --text-link:                  var(--dark-orange);
+    --text-link-hover:            var(--deep-orange); */
+
     /* code */
     --print-codeblock-color:      #ece9e5;
     --pre-code:                   var(--print-codeblock-color) !important;
@@ -34,6 +68,7 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     --print-code-keyword:         var(--neutral-purple) !important;
     --print-code-operator:        var(--neutral-red) !important;
     --print-code-string:          var(--neutral-green) !important;
+
   }
 
   body {
@@ -50,6 +85,11 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
     tab-size: 2; /* set tab size, works in codeblock */
   }
 
+  p {
+    margin-top: 0.25em !important;
+    margin-bottom: 1em !important;
+  }
+
   /* page break stuff */
   .image-embed,
   img,
@@ -59,6 +99,11 @@ https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f
   .callout {
     page-break-inside: avoid;
   }
+
+  /* ul, ul > ul {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+  } */
 
   li:not(li:empty) {
     page-break-inside: avoid;
